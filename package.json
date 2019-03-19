@@ -5,5 +5,8 @@
   "repository": "https://github.com/orihuzak/kansuji-converter.git",
   "author": "Kazuhiro <arx.solid@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  }
 }
