@@ -1,12 +1,13 @@
 {
   "name": "kansuji-converter",
   "version": "1.0.0",
-  "main": "index.mjs",
+  "main": "index.ts",
   "repository": "https://github.com/orihuzak/kansuji-converter.git",
   "author": "Kazuhiro <arx.solid@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "node --experimental-modules index.mjs"
-  }
+    "start": "deno index.ts"
+  },
+  "devDependencies": {}
 }
