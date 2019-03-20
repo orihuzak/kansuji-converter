@@ -6,59 +6,39 @@ const kansujiDict = {
       log = console.log
 
 export function toNumber(text){
-  return convert2(text, manRe)
+  return convert(text)
 }
 
-function convert2(text, re) {
+/** 単位を含む漢数字列を数字にする */
+function unit2number(text) {
   let result = 0
- // let flag = (manRe.test(text)) ? true : false
-  const flag = (manRe.test(text)) 
-    ? 1
-    : (unitRe.test(text))
-    ? 2
-    : 0
-  while(re.test(text)) {
-    const i = text.search(re)
+  if(unitRe.test(text)){
+    const i = text.search(unitRe)
     const prePtnStr = text.substring(0, i)
     const unit = text[i]
-
-    let prePtnNum = 0
-    if (flag) {
-      prePtnNum = convert(prePtnStr, unitRe)
-    } else prePtnNum = nonUnitKansuji2number(prePtnStr, 1)
-
-    text = text.substring(i + 1)
+    /* 下の処理で成功するかわからないので一応
+    if (prePtnStr.length === 0) prePtnNum = 1
+    else prePtnNum = nonUnitKansuji2number(prePtnStr)
+    */
+    const prePtnNum = nonUnitKansuji2number(prePtnStr, 1)
     result += 1 * prePtnNum * kansujiDict[unit]
-  }
-  if (/[〇一二三四五六七八九]+/.test(text)) {
-    result += (flag) 
-      ? convert(text, unitRe)
-      : nonUnitKansuji2number(text)
-  }
+    text = text.substring(i + 1)
+    if(text.length > 0) result += unit2number(text)
+  } else result += nonUnitKansuji2number(text)
   return result
 }
 
-function convert(text, re) {
+function convert(text) {
   let result = 0
-  let flag = (manRe.test(text)) ? true : false
-  while(re.test(text)) {
-    const i = text.search(re)
+  if(manRe.test(text)){
+    const i = text.search(manRe)
     const prePtnStr = text.substring(0, i)
-    const unit = text[i]
-
-    let prePtnNum = 0
-    if (flag) {
-      prePtnNum = convert(prePtnStr, unitRe)
-    } else prePtnNum = nonUnitKansuji2number(prePtnStr, 1)
-
+    const man = text[i]
+    const prePtnNum = unit2number(prePtnStr)
+    result += 1 * prePtnNum * kansujiDict[man]
     text = text.substring(i + 1)
-    result += 1 * prePtnNum * kansujiDict[unit]
-  }
-  if (/[〇一二三四五六七八九]+/.test(text)) {
-    result += (flag) 
-      ? convert(text, unitRe)
-      : nonUnitKansuji2number(text)
-  }
+    if(text.length > 0) result += convert(text)
+  } else result += unit2number(text)
   return result
 }
 
