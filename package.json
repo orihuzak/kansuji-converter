@@ -7,7 +7,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "deno index.ts"
+    "start": "node --experimental-modules index.mjs",
+    "deno": "deno index.mjs"
   },
   "devDependencies": {}
 }
