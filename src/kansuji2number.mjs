@@ -5,8 +5,16 @@ const kansujiDict = {
       unitRe =  /[十百千]/,
       log = console.log
 
-export function toNumber(text){
-  return convert(text)
+/** 漢数字をnumberにして返します */
+export function kansuji2Number(text) {
+  let result = 0
+  const units = text.split(manRe)
+  const length = units.length - 1
+  units.forEach( (unit, index) => {
+    result += unit2number(unit)
+    if (!(index === length)) result *= 10000
+  })
+  return result
 }
 
 /** 単位を含む漢数字列を数字にする */
@@ -16,29 +24,11 @@ function unit2number(text) {
     const i = text.search(unitRe)
     const prePtnStr = text.substring(0, i)
     const unit = text[i]
-    /* 下の処理で成功するかわからないので一応
-    if (prePtnStr.length === 0) prePtnNum = 1
-    else prePtnNum = nonUnitKansuji2number(prePtnStr)
-    */
     const prePtnNum = nonUnitKansuji2number(prePtnStr, 1)
     result += 1 * prePtnNum * kansujiDict[unit]
     text = text.substring(i + 1)
     if(text.length > 0) result += unit2number(text)
   } else result += nonUnitKansuji2number(text)
-  return result
-}
-
-function convert(text) {
-  let result = 0
-  if(manRe.test(text)){
-    const i = text.search(manRe)
-    const prePtnStr = text.substring(0, i)
-    const man = text[i]
-    const prePtnNum = unit2number(prePtnStr)
-    result += 1 * prePtnNum * kansujiDict[man]
-    text = text.substring(i + 1)
-    if(text.length > 0) result += convert(text)
-  } else result += unit2number(text)
   return result
 }
 
