@@ -3,7 +3,21 @@ const kansujiDict = {
   十: 10, 百: 100, 千: 1000, 万: 10000, 億: 10 ** 8, 兆: 10 ** 12 },
       manRe = /[万億兆]/,
       unitRe =  /[十百千]/,
+      kansujiRe = /[〇一二三四五六七八九十百千万億兆]+/,
       log = console.log
+
+export function kansujiConverter(text) {
+  let result = ''
+  if(kansujiRe.test(text)){
+    const ptn = text.match(kansujiRe)
+    const num = kansuji2Number(ptn[0])
+    result += text.substring(0, ptn.index) + num.toString()
+    text = text.substring(ptn.index + ptn[0].length)
+    result += kansujiConverter(text)
+  } else result += text
+  return result
+}
+
 
 /** 漢数字をnumberにして返します */
 export function kansuji2Number(text) {
