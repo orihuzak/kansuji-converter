@@ -11,3 +11,5 @@ log(kansuji2Number('百二'))
 log(kansuji2Number('十万千一'))
 log(kansuji2Number('十'))
 */
+
+こんにちは
