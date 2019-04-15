@@ -3,4 +3,4 @@ services:
   app:
     build: .
     volumes:
-      - . # current dir
+      - ./:/app
