@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "main": "index.mjs",
   "repository": "https://github.com/orihuzak/kansuji-converter.git",
-  "author": "Kazuhiro <arx.solid@gmail.com>",
+  "author": "orih <arx.solid@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
     "start": "node --experimental-modules index.mjs",
-    "deno": "deno index.mjs"
+    "deno": "deno index.mjs",
+    "test": "node --experimental-modules ./src/kansuji2arabic.mjs"
   },
   "devDependencies": {}
 }
