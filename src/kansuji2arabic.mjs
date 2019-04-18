@@ -1,4 +1,4 @@
-export function kansuji2arabic(text) {
+export default function kansuji2arabic(text) {
   const kansuji2number = { 零: 0, 〇: 0, 一: 1, 二: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9}
   const unit2number = {
     十: 10,
@@ -17,7 +17,7 @@ export function kansuji2arabic(text) {
     const reUnit = new RegExp(`(\\d*)${unit}(\\d*)`, 'g')
     arabic = arabic.replace(reUnit, (...match) => {
       const left = (match[1] ? parseInt(match[1]) : 1)
-      const right = (match[2] ? parseInt(match[2]) : 0)        
+      const right = (match[2] ? parseInt(match[2]) : 0)
       return (left * unit2number[unit] + right).toString()
     })
   }

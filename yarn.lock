@@ -2,3 +2,52 @@
 # yarn lockfile v1
 
 
+"@types/doublearray@*":
+  version "0.0.29"
+  resolved "https://registry.yarnpkg.com/@types/doublearray/-/doublearray-0.0.29.tgz#3cbe6bb616af524648d440bbdf784e9c1e34009d"
+  integrity sha1-PL5rthavUkZI1EC733hOnB40AJ0=
+
+"@types/kuromoji@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@types/kuromoji/-/kuromoji-0.1.0.tgz#c8576688644864afa0c81f4d841a7142ad5293a6"
+  integrity sha512-gEAkIk4qxsK5ry64fCYFGjb3a+NQVOiNOT6fz0OyXizob+yewF4GFVX23GG4YNwKM2hB0J6fnMPMffFK+cYHnw==
+  dependencies:
+    "@types/doublearray" "*"
+
+async@^2.0.1:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/async/-/async-2.6.2.tgz#18330ea7e6e313887f5d2f2a904bac6fe4dd5381"
+  integrity sha512-H1qVYh1MYhEEFLsP97cVKqCGo7KfCyTt6uEWqsTBr9SO84oK9Uwbyd/yCW+6rKJLHksBNUVWZDAjfS+Ccx0Bbg==
+  dependencies:
+    lodash "^4.17.11"
+
+doublearray@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/doublearray/-/doublearray-0.0.2.tgz#63186fe8d34413276d3621f6aa0ec5f79e227ef9"
+  integrity sha1-Yxhv6NNEEydtNiH2qg7F954ifvk=
+
+kuromoji@0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/kuromoji/-/kuromoji-0.1.1.tgz#4aabf39bcced8b8ad92d007a04a26be6da8477c9"
+  integrity sha1-Sqvzm8zti4rZLQB6BKJr5tqEd8k=
+  dependencies:
+    async "^2.0.1"
+    doublearray "0.0.2"
+    zlibjs "^0.2.0"
+
+kuromojin@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/kuromojin/-/kuromojin-1.4.0.tgz#2d955746736981e73d02dbfd20eeee8110cddab2"
+  integrity sha512-ZoG3NAW6ATKgo2jBgjVWwE66GeaT2jHgdf0v1dL8+WffuSfvTvX7l6ePgYusSAhHW+dwtneYcbav8N0NhsA0uw==
+  dependencies:
+    kuromoji "0.1.1"
+
+lodash@^4.17.11:
+  version "4.17.11"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
+  integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
+
+zlibjs@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/zlibjs/-/zlibjs-0.2.0.tgz#ae20f06243293d85c255563189f9b12f5b3ba1a0"
+  integrity sha1-riDwYkMpPYXCVVYxifmxL1s7oaA=
