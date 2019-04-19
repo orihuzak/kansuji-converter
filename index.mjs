@@ -1,4 +1,4 @@
-import { kansuji2arabic } from "./src/kansuji2arabic";
+import { kansuji2arabic } from "./src/kansuji2arabic"
 const log = console.log
 
 log(kansuji2arabic('高度八千メートルの山と三百六十万二千十一の人々'))

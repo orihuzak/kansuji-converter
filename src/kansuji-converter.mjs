@@ -2,9 +2,9 @@ import kuromojin from "kuromojin"
 import kansuji2arabic from "./kansuji2arabic"
 import toSI from "./unit-converter"
 import toHumanReadable from "./human-readable-number"
-
+import fs from "fs"
 const log = console.log
-const text = '二千フィートの巨人が一万二千三百四十五ヤードを歩いてきた'
+const text = fs.readFileSync('./data/input.txt', 'utf8')
 
 kuromojin(text).then((morphemes) => {
   let i = 0
@@ -29,7 +29,7 @@ kuromojin(text).then((morphemes) => {
     }
   })
   result += text.substring(i)
-  log(result)
+  fs.writeFileSync('./data/output.txt', result)
 }).catch((err) => {
 
 })
