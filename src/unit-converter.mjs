@@ -1,4 +1,3 @@
-const log = console.log
 /**
  * 出力: {
  	   all: <number><unit>,

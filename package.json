@@ -11,9 +11,8 @@
     "dev": "node inspect --experimental-modules index.mjs",
     "deno": "deno index.mjs",
     "kc": "node --experimental-modules ./src/kansuji-converter.mjs",
-    "kc:debug": "node inspect --experimental-modules ./src/kansuji-converter.mjs",
     "si":  "node --experimental-modules ./src/unit-converter.mjs",
-    "human" : "node --experimental-modules ./src/human-readable-number.mjs"
+    "human": "node --experimental-modules ./src/human-readable-number.mjs"
   },
   "devDependencies": {
     "@types/kuromoji": "^0.1.0"
