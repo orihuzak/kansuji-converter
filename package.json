@@ -1,18 +1,15 @@
 {
   "name": "kansuji-converter",
-  "version": "1.0.0",
-  "main": "index.mjs",
+  "version": "1.1.0",
+  "type": "module",
+  "main": "index.js",
   "repository": "https://github.com/orihuzak/kansuji-converter.git",
   "author": "orih <arx.solid@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "node --experimental-modules index.mjs",
-    "dev": "node inspect --experimental-modules index.mjs",
-    "deno": "deno index.mjs",
-    "kc": "node --experimental-modules ./src/kansuji-converter.mjs",
-    "si":  "node --experimental-modules ./src/unit-converter.mjs",
-    "human": "node --experimental-modules ./src/human-readable-number.mjs"
+    "start": "node --experimental-modules index.js",
+    "debug": "node inspect --experimental-modules index.js"
   },
   "devDependencies": {
     "@types/kuromoji": "^0.1.0"

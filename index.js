@@ -1,8 +1,9 @@
 import kuromojin from "kuromojin"
-import kansuji2arabic from "./src/kansuji2arabic"
-import toSI from "./src/unit-converter"
-import toHumanReadable from "./src/human-readable-number"
+import kansuji2arabic from "./src/kansuji2arabic.js"
+import toSI from "./src/unit-converter.js"
+import toHumanReadable from "./src/human-readable-number.js"
 import fs from "fs"
+
 const text = fs.readFileSync('./data/input.txt', 'utf8')
 
 kuromojin(text).then( morphemes => {
