@@ -20,7 +20,10 @@ export default function toSI(num, unit, option = { lang: 'en' }) {
   } else if (['マイル', 'mile'].includes(unit)) {
     result.number = 1609.3 * num
     result.unit = option.lang === 'ja' ? 'メートル' : 'm'
-  } else result = null
+  } else {
+    result.number = num
+    result.unit = unit
+  }
   result.all = result.number + result.unit
   return result
 }

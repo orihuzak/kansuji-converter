@@ -5,8 +5,7 @@ import toHumanReadable from "./src/human-readable-number.js"
 import fs from "fs"
 
 const text = fs.readFileSync('./data/input.txt', 'utf8')
-
-kuromojin(text).then( morphemes => {
+kuromojin(text).then(morphemes => {
   let i = 0
   let result = ''
   morphemes.forEach( morpheme => {
@@ -29,5 +28,5 @@ kuromojin(text).then( morphemes => {
   result += text.substring(i)
   fs.writeFileSync('./data/output.txt', result)
 }).catch((err) => {
-
+  console.error(err)
 })
